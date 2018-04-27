@@ -22,6 +22,8 @@ def __tokenize (L):
     # L is string list (without comments & empty lines)
     # LL is string list list (without whitespaces)
     LL = [[token.strip () for token in line.split (' ')] for line in L]
+    for line in LL:
+        line = [token for token in line if len (token) > 0] # remove empty token
     T = []
     for line in LL:
         for token in line:
