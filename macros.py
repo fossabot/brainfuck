@@ -59,8 +59,8 @@ def process_macros (T):
         return False
     counter = 0
     while (exist_macros (T)): # substitute until no macros
-        TM = __find_macros (T)
-        T = __substitute_once (TM)
+        (T, M) = __find_macros (T)
+        T = __substitute_once (T, M)
         counter += 1
         if counter >= 100:
             raise ValueError ('Brainfuck: macro definition exceed maximum recursive depth.')
