@@ -45,3 +45,8 @@ zero # put zero into the right cell
 . # output
 ```
 
+## Roadmap
+
+- Make a REPL
+- Fix program base path finding with relative path
+
