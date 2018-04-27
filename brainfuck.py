@@ -46,7 +46,7 @@ def __open_file (program):
 
 T = __open_file (program) # initial tokens
 
-base_path = os.path.dirname (program.name)
+base_path = os.path.dirname (program)
 T = process_macros (T, base_path) # substitute ALL macros
 
 # -----------------------------------------------------------------------------
