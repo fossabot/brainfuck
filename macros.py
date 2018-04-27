@@ -50,3 +50,19 @@ def __substitute_once (T, M):
                 S.append (_token)
     return S
 
+def process_macros (T):
+    # T is token list
+    def exist_macros (T): # exist USE of macros, not definitions
+        for token in T:
+            if token [0] not in __built_in:
+                return True
+        return False
+    counter = 0
+    while (exist_macros (T)): # substitute until no macros
+        TM = __find_macros (T)
+        T = __substitute_once (TM)
+        counter += 1
+        if counter >= 100:
+            raise ValueError ('Brainfuck: macro definition exceed maximum recursive depth.')
+    return T # T is token list without macros
+
