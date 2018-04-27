@@ -28,6 +28,7 @@ from lexer import tokenize
 from macros import process_macros
 
 from sys import argv
+import os
 
 if len (argv) <= 1:
     raise ValueError ('Brainfuck: no program supplied.')
@@ -45,7 +46,8 @@ def __open_file (program):
 
 T = __open_file (program) # initial tokens
 
-T = process_macros (T) # substitute ALL macros
+base_path = os.path.dirname (program.name)
+T = process_macros (T, base_path) # substitute ALL macros
 
 # -----------------------------------------------------------------------------
 # Interpreter begins here.

@@ -50,7 +50,7 @@ def __substitute_once (T, M):
                 S.append (_token)
     return S
 
-def process_macros (T):
+def process_macros (T, base_path):
     # T is token list
     def exist_macros (T): # exist USE of macros, not definitions
         for token in T:
