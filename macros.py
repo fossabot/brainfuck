@@ -25,13 +25,13 @@ def __open_file (name):
     f.close ()
     return T
 
-def __substitute_once (T, M):
+def __substitute_once (T, M, base_path):
     # T is token list (without macro definitions)
     # M is macro definitions of T
     M = list (set (M)) # remove duplicate definitions
     MACROS = {} # M definition as key, token list as value
     for macro in M:
-        macro_tokens = __open_file (macro)
+        macro_tokens = __open_file (base_path + '/' + macro)
         MACROS [macro] = macro_tokens
     for A in MACROS:
         for B in MACROS: # pairwise loop
@@ -60,7 +60,7 @@ def process_macros (T, base_path):
     counter = 0
     while (exist_macros (T)): # substitute until no macros
         (T, M) = __find_macros (T)
-        T = __substitute_once (T, M)
+        T = __substitute_once (T, M, base_path)
         counter += 1
         if counter >= 100:
             raise ValueError ('Brainfuck: macro definition exceed maximum recursive depth.')
