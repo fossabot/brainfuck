@@ -1,6 +1,6 @@
 # Brainfuck interpret - Lexer
 
-__built_in = ['+', '-', '>', '<', '.', ',', '[', ']']
+__built_in = ['+', '-', '>', '<', '.', ',', '[', ']', '#', '$']
 
 def __remove_comments (L):
     # L is string list
