@@ -132,5 +132,6 @@ while (ins_pointer != len (T)): # pointer at len (T) program ends
 if __debug:
     print ('[DEBUG] program successfully exits.')
     print ('[DEBUG] data cells: ' + str (CELL))
+    print ('[DEBUG] final data cell pointer: ' + str (cell_pointer))
     print ('[DEBUG] final stack has length ' + str (len (STACK)))
 
