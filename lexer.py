@@ -18,7 +18,7 @@ def __remove_whitespaces (L):
     L = [line for line in L if len (line) > 0] # remove empty lines
     return L
 
-def tokenize (L):
+def __tokenize (L):
     # L is string list (without comments & empty lines)
     # LL is string list list (without whitespaces)
     LL = [[token.strip () for token in line.split (' ')] for line in L]
@@ -33,5 +33,13 @@ def tokenize (L):
             else:
                 # add entire token into token list
                 T.append (token)
+    return T
+
+def tokenize (L): # public version of tokenize
+    # L is string list (no requires)
+    # returns token list
+    L = __remove_comments (L)
+    L = __remove_whitespaces (L)
+    T = __tokenize (L)
     return T
 
