@@ -9,11 +9,8 @@ def __find_macros (T):
     # remove '$' macro definition in T
     # return updated T and M (macro definition list)
     T_ = [token for token in T if token [0] != '$']
-    print (T_)
     M_ = [token for token in T if token [0] == '$']
-    print (M_)
     M = [macro [1:] for macro in M_] # remove definition command '$'
-    print (M)
     return (T_, M)
 
 def __open_file (name):
@@ -33,7 +30,6 @@ def __substitute_once (T, M):
     # M is macro definitions of T
     M = list (set (M)) # remove duplicate definitions
     MACROS = {} # M definition as key, token list as value
-    print (M)
     for macro in M:
         macro_tokens = __open_file (macro)
         MACROS [macro] = macro_tokens
