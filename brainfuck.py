@@ -130,6 +130,7 @@ while (ins_pointer != len (T)): # pointer at len (T) program ends
     raise ValueError ('Brainfuck: un-recognized command {c}'.format (c = token))
 
 if __debug:
+    print ('')
     print ('[DEBUG] program successfully exits.')
     print ('[DEBUG] data cells: ' + str (CELL))
     print ('[DEBUG] final data cell pointer: ' + str (cell_pointer))
