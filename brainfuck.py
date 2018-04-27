@@ -106,10 +106,8 @@ while (ins_pointer != len (T)): # pointer at len (T) program ends
         while bracket_counter != 0:
             if T [ins_pointer] == '[':
                 bracket_counter += 1
-                continue
-            if T [ins_pointer] == ']':
+            elif T [ins_pointer] == ']':
                 bracket_counter -= 1
-                continue
             ins_pointer += 1
             continue
         # when bracket count is 0, ins_pointer is at next instruction after ']'
@@ -117,7 +115,7 @@ while (ins_pointer != len (T)): # pointer at len (T) program ends
     if token [0] == ']': # loop back
         if len (STACK) == 0:
             raise ValueError ('Brainfuck: loop stack empty.')
-        ins_pointer = STACK.pop ()
+        ins_pointer = STACK.pop () - 1 # move to '[' location
         continue
     raise ValueError ('Brainfuck: un-recognized command {c}'.format (c = token))
 
