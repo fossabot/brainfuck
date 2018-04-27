@@ -34,6 +34,11 @@ if len (argv) <= 1:
     raise ValueError ('Brainfuck: no program supplied.')
 
 program = argv [1]
+__debug = False # debug mode
+
+if len (argv) >= 3:
+    if '-d' in argv:
+        __debug = True
 
 def __open_file (program):
     try:
@@ -48,6 +53,9 @@ T = __open_file (program) # initial tokens
 
 base_path = os.path.dirname (program)
 T = process_macros (T, base_path) # substitute ALL macros
+
+if __debug:
+    print ('[DEBUG] processed token list: ' + str (T))
 
 # -----------------------------------------------------------------------------
 # Interpreter begins here.
@@ -120,4 +128,9 @@ while (ins_pointer != len (T)): # pointer at len (T) program ends
         ins_pointer = STACK.pop () - 1 # move to '[' location
         continue
     raise ValueError ('Brainfuck: un-recognized command {c}'.format (c = token))
+
+if __debug:
+    print ('[DEBUG] program successfully exits.')
+    print ('[DEBUG] data cells: ' + str (CELL))
+    print ('[DEBUG] final stack has length ' + str (len (STACK)))
 
