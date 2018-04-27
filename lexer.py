@@ -28,7 +28,7 @@ def __tokenize (L):
     for line in LL:
         for token in line:
             # check if token is string of built-in commands
-            if token [0] in __built_in:
+            if (token [0] in __built_in) and (token [0] != '$'):
                 # add individual chars into token list
                 for c in token:
                     T.append (c)
