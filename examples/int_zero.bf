@@ -9,4 +9,4 @@ clear > clear < # clear both cells and move back
   < +++ +++ # add 6 to left cell
   > - # decrement right cell
 ]
-
+< # move back
