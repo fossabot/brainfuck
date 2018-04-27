@@ -1,4 +1,4 @@
-# Brainfuck interpret - Lexer
+# Brainfuck interpreter - Lexer
 
 __built_in = ['+', '-', '>', '<', '.', ',', '[', ']', '#', '$']
 
