@@ -94,6 +94,12 @@ while (ins_pointer != len (T)): # pointer at len (T) program ends
     __debug_token (token, ins_pointer)
     ins_pointer += 1 # increment instruction pointer to next instruction
     if token [0] == '|': # program termination signal
+        if __debug: # status dump
+            print ('')
+            print ('[DEBUG] program terminates by signal `|`.')
+            print ('[DEBUG] data cells: ' + str (CELL))
+            print ('[DEBUG] data cell pointer: ' + str (cell_pointer))
+            print ('[DEBUG] stack has length ' + str (len (STACK)))
         os._exit (0)
     if token [0] == '$':
         # macro definition - ignore
