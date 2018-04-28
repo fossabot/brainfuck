@@ -32,12 +32,12 @@ pushd ~/.brainfuck > /dev/null
   if hash python3 2>/dev/null; then
     echo 'python3 ~/.brainfuck/src/brainfuck.py $@' >> brainfuck
     echo 'echo' >> brainfuck
-    echo 'rm -rf __pycache__' >> brainfuck
+    echo 'rm -rf ~/.brainfuck/src/__pycache__ > /dev/null' >> brainfuck
   else
     echo 'python ~/.brainfuck/src/brainfuck.py $@' >> brainfuck
     echo 'echo' >> brainfuck
-    echo 'rm -rf __pycache__' >> brainfuck
-    echo 'rm -rf *.pyc' >> brainfuck
+    echo 'rm -rf ~/.brainfuck/src/__pycache__ > /dev/null' >> brainfuck
+    echo 'rm -rf ~/.brainfuck/src/*.pyc > /dev/null' >> brainfuck
   fi
 popd > /dev/null
 
