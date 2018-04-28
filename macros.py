@@ -31,7 +31,7 @@ def __substitute_once (T, M, base_path):
     M = list (set (M)) # remove duplicate definitions
     MACROS = {} # M definition as key, token list as value
     for macro in M:
-        macro_tokens = __open_file (base_path + '/' + macro)
+        macro_tokens = __open_file (base_path + macro)
         MACROS [macro] = macro_tokens
     for A in MACROS:
         for B in MACROS: # pairwise loop

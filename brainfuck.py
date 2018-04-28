@@ -69,6 +69,8 @@ def __open_file (program):
 T = __open_file (program) # initial tokens
 
 base_path = os.path.dirname (program)
+if len (base_path) > 0:
+    base_path += '/'
 T = process_macros (T, base_path) # substitute ALL macros
 
 if __debug:
