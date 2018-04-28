@@ -13,7 +13,7 @@
   << - # [0] --
 ] # [0, 0, 0, 7]
 
-$int_zero $add
->> int_zero # [0, 0, 48, 7]
-add # [0, 0, 0, int 7]
-> . # print 7
+$int_zero_pure $add
+>> int_zero_pure # [0, 0, 48, 7]
+add # [0, 0, int 7, 0]
+. # print 7
