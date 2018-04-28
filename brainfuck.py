@@ -77,7 +77,7 @@ if __debug:
     print ('[DEBUG] processed token list: ' + str (T))
 def __debug_token (s, i):
     if __debug:
-        print ('[DEBUG] compute token {token} at index {index}'.format (token = s, index = i))
+        print ('[DEBUG] compute token {token} at index {index}'.format (token = s, index = i) + ' | ' + str (CELL))
     pass
 
 # -----------------------------------------------------------------------------
