@@ -48,6 +48,7 @@ Enjoy!
 
 if len (argv) <= 1:
     print (__help_message)
+    os._exit (0)
 
 program = argv [1]
 __debug = False # debug mode
