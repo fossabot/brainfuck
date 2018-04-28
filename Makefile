@@ -1,4 +1,4 @@
-.PHONY: clean, manual, compile
+.PHONY: clean, manual, compile, install
 
 clean:
 	rm -rf __pycache__
@@ -13,3 +13,7 @@ compile: brainfuck.py lexer.py macros.py
 	@python3 macros.py
 	# Compilation passed in Python 3.
 	@make clean
+
+install: brainfuck.py lexer.py macros.py install/init
+	@chmod +x install/init
+	@install/./init

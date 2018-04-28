@@ -1,0 +1,43 @@
+if [ -e ~/.bashrc ]; then
+  echo '' >> ~/.bashrc
+  echo '# Brainfuck path' >> ~/.bashrc
+  echo 'PATH="~/.brainfuck:$PATH"' >> ~/.bashrc
+fi
+if [ -e ~/.zshrc ]; then
+  echo '' >> ~/.zshrc
+  echo '# Brainfuck path' >> ~/.zshrc
+  echo 'PATH="~/.brainfuck:$PATH"' >> ~/.zshrc
+fi
+if [ -e ~/.profile ]; then
+  echo '' >> ~/.profile
+  echo '# Brainfuck path' >> ~/.profile
+  echo 'PATH="~/.brainfuck:$PATH"' >> ~/.profile
+fi
+if [ -e ~/.bash_profile ]; then
+  echo '' >> ~/.bash_profile
+  echo '# Brainfuck path' >> ~/.bash_profile
+  echo 'PATH="~/.brainfuck:$PATH"' >> ~/.bash_profile
+fi
+
+mkdir ~/.brainfuck > /dev/null
+mkdir ~/.brainfuck/src > /dev/null
+
+cp ../brainfuck.py ~/.brainfuck/src > /dev/null
+cp ../lexer.py ~/.brainfuck/src > /dev/null
+cp ../macros.py ~/.brainfuck/src > /dev/null
+
+pushd ~/.brainfuck > /dev/null
+  touch brainfuck > /dev/null
+  chmod +x brainfuck > /dev/null
+  if hash python3 2>/dev/null; then
+    echo 'python3 brainfuck.py $@' >> brainfuck
+    echo 'echo' >> brainfuck
+    echo 'rm -rf __pycache__' >> brainfuck
+  else
+    echo 'python brainfuck.py $@' >> brainfuck
+    echo 'echo' >> brainfuck
+    echo 'rm -rf __pycache__' >> brainfuck
+    echo 'rm -rf *.pyc' >> brainfuck
+  fi
+popd > /dev/null
+
