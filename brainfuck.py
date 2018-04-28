@@ -75,6 +75,10 @@ T = process_macros (T, base_path) # substitute ALL macros
 
 if __debug:
     print ('[DEBUG] processed token list: ' + str (T))
+def __debug_token (s, i):
+    if __debug:
+        print ('[DEBUG] compute token {token} at index {index}'.format (token = s, index = i))
+    pass
 
 # -----------------------------------------------------------------------------
 # Interpreter begins here.
@@ -86,6 +90,7 @@ ins_pointer = 0 # instruction pointer
 
 while (ins_pointer != len (T)): # pointer at len (T) program ends
     token = T [ins_pointer] # get command token
+    __debug_token (token, ins_pointer)
     ins_pointer += 1 # increment instruction pointer to next instruction
     if token [0] == '$':
         # macro definition - ignore
