@@ -30,11 +30,11 @@ pushd ~/.brainfuck > /dev/null
   touch brainfuck > /dev/null
   chmod +x brainfuck > /dev/null
   if hash python3 2>/dev/null; then
-    echo 'python3 src/brainfuck.py $@' >> brainfuck
+    echo 'python3 ~/.brainfuck/src/brainfuck.py $@' >> brainfuck
     echo 'echo' >> brainfuck
     echo 'rm -rf __pycache__' >> brainfuck
   else
-    echo 'python src/brainfuck.py $@' >> brainfuck
+    echo 'python ~/.brainfuck/src/brainfuck.py $@' >> brainfuck
     echo 'echo' >> brainfuck
     echo 'rm -rf __pycache__' >> brainfuck
     echo 'rm -rf *.pyc' >> brainfuck
