@@ -68,5 +68,6 @@ zero # put zero into the right cell
 ## Roadmap
 
 - Make a REPL
+- Allow in-file macro definition
 - Fix program base path finding with relative path
 
