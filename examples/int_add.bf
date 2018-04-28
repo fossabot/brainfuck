@@ -14,3 +14,5 @@
 $add # add right cell to this, clearing right cell
 $int_zero_pure # puts 48 in current cell, affecting no other
 
+# [0] = A(x), [1] = A(y)
+
