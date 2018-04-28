@@ -14,6 +14,6 @@ compile: brainfuck.py lexer.py macros.py
 	# Compilation passed in Python 3.
 	@make clean
 
-install: brainfuck.py lexer.py macros.py install/init
-	@chmod +x install/init
-	@install/./init
+install: brainfuck.py lexer.py macros.py init
+	@chmod +x init
+	@./init
