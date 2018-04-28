@@ -11,6 +11,18 @@ git clone https://github.com/SAMFYB/brainfuck.git
 cd brainfuck && make install
 ```
 
+### Run Brainfuck
+
+```shell
+brainfuck your_program.bf
+
+# To run DEBUG mode
+brainfuck your_buggy_program.bf -d
+
+# To display help message
+brainfuck
+```
+
 ### Built-in Commands
 
 - `+` Increment the cell at current data pointer.
