@@ -93,6 +93,8 @@ while (ins_pointer != len (T)): # pointer at len (T) program ends
     token = T [ins_pointer] # get command token
     __debug_token (token, ins_pointer)
     ins_pointer += 1 # increment instruction pointer to next instruction
+    if token [0] == '|': # program termination signal
+        os._exit (0)
     if token [0] == '$':
         # macro definition - ignore
         continue

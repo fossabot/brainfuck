@@ -2,7 +2,7 @@
 
 from lexer import tokenize
 
-__built_in = ['+', '-', '>', '<', '.', ',', '[', ']', '#', '$']
+__built_in = ['+', '-', '>', '<', '.', ',', '[', ']', '#', '$', '|']
 
 def __find_macros (T):
     # T is token list
