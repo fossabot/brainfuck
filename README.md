@@ -33,6 +33,7 @@ brainfuck
 - `]` Jump backward to the matching `[`.
 - `#` Start an end-of-line comment.
 - `$` Import definition of a macro, in the form of `$macro_name`, no space between `$` and the macro name.
+- `|` Force program termination immediately, if `-d` enabled, dump program status. (useful for debugging)
 
 ### Macros
 
