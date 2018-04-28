@@ -4,6 +4,13 @@ See [Wikipedia](https://en.wikipedia.org/wiki/Brainfuck) on the original Brainfu
 
 This implementation of Brainfuck introduces __macro definition__.
 
+### Installation
+
+```shell
+git clone https://github.com/SAMFYB/brainfuck.git
+cd brainfuck && make install
+```
+
 ### Built-in Commands
 
 - `+` Increment the cell at current data pointer.

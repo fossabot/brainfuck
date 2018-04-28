@@ -41,3 +41,5 @@ pushd ~/.brainfuck > /dev/null
   fi
 popd > /dev/null
 
+echo 'Brainfuck: installation complete.'
+echo 'You need to re-source shell configuration to update PATH.'
