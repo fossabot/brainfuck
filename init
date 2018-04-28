@@ -22,19 +22,19 @@ fi
 mkdir ~/.brainfuck > /dev/null
 mkdir ~/.brainfuck/src > /dev/null
 
-cp ../brainfuck.py ~/.brainfuck/src > /dev/null
-cp ../lexer.py ~/.brainfuck/src > /dev/null
-cp ../macros.py ~/.brainfuck/src > /dev/null
+cp brainfuck.py ~/.brainfuck/src > /dev/null
+cp lexer.py ~/.brainfuck/src > /dev/null
+cp macros.py ~/.brainfuck/src > /dev/null
 
 pushd ~/.brainfuck > /dev/null
   touch brainfuck > /dev/null
   chmod +x brainfuck > /dev/null
   if hash python3 2>/dev/null; then
-    echo 'python3 brainfuck.py $@' >> brainfuck
+    echo 'python3 src/brainfuck.py $@' >> brainfuck
     echo 'echo' >> brainfuck
     echo 'rm -rf __pycache__' >> brainfuck
   else
-    echo 'python brainfuck.py $@' >> brainfuck
+    echo 'python src/brainfuck.py $@' >> brainfuck
     echo 'echo' >> brainfuck
     echo 'rm -rf __pycache__' >> brainfuck
     echo 'rm -rf *.pyc' >> brainfuck
