@@ -30,8 +30,24 @@ from macros import process_macros
 from sys import argv
 import os
 
+__help_message = '''
+-----------------------------------
+Brainfuck with Macros (version 1.0)
+[created by https://github.com/SAMFYB]
+[see github source at https://github.com/SAMFYB/brainfuck]
+----------------------------------------------------------
+You need to supply a brainfuck program to run, like this:
+    brainfuck hello_world.bf
+To run in DEBUG mode:
+    brainfuck program.bf -d
+To see this help message:
+    brainfuck
+Enjoy!
+------
+'''.strip ()
+
 if len (argv) <= 1:
-    raise ValueError ('Brainfuck: no program supplied.')
+    print (__help_message)
 
 program = argv [1]
 __debug = False # debug mode
