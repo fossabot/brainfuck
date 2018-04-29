@@ -52,10 +52,13 @@ if len (argv) <= 1:
 
 program = argv [1]
 __debug = False # debug mode
+__translate = False # donot execute, translate to plain brainfuck
 
 if len (argv) >= 3:
     if '-d' in argv:
         __debug = True
+    if '-b' in argv:
+        __translate = True
 
 def __open_file (program):
     try:
@@ -72,6 +75,13 @@ base_path = os.path.dirname (program)
 if len (base_path) > 0:
     base_path += '/'
 T = process_macros (T, base_path) # substitute ALL macros
+
+if __translate:
+    for i in range (len (T)):
+        if len (T [i]) == 1: # ensure valid plain bf token
+            print (T [i], end='')
+    print ('\n')
+    os._exit (0)
 
 if __debug:
     print ('[DEBUG] processed token list: ' + str (T))

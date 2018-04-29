@@ -21,6 +21,9 @@ brainfuck your_buggy_program.bf -d
 
 # To display help message
 brainfuck
+
+# To translate macro-invoking script to plain brainfuck (original 8 commands)
+brainfuck program.bf -b
 ```
 
 ### Built-in Commands
@@ -31,6 +34,8 @@ brainfuck
 - `<` Move data pointer to the left, __do nothing__ if data pointer has value `0`, i.e. at the leftmost cell.
 - `[` If the current cell has value `0`, jump to the command after the matching `]`, otherwise continue execution.
 - `]` Jump backward to the matching `[`.
+- `.` Output the current cell value decoded as Ascii.
+- `,` Accept one input integer as Ascii code, put into the cell at current data pointer.
 - `#` Start an end-of-line comment.
 - `$` Import definition of a macro, in the form of `$macro_name`, no space between `$` and the macro name.
 - `|` Force program termination immediately, if `-d` enabled, dump program status. (useful for debugging)
