@@ -28,7 +28,7 @@ def __token_break (token):
         return [token[0]] + __token_break (token[1:]) # break leftmost out
     if (token[0] == '$'): # leftmost is macro definition
         first_command = -1
-        for i in range (len (token)): # try to find a command
+        for i in range (1, len (token)): # try to find a command
             if token[i] in __built_in:
                 first_command = i
                 break
@@ -37,7 +37,7 @@ def __token_break (token):
         return [token[:first_command]] + __token_break (token[first_command:])
     # leftmost is macro use
     first_command = -1
-    for i in range (len (token)):
+    for i in range (1, len (token)):
         if token[i] in __built_in:
             first_command = i
             break
