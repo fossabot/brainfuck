@@ -18,6 +18,33 @@ def __remove_whitespaces (L):
     L = [line for line in L if len (line) > 0] # remove empty lines
     return L
 
+def __token_break (token):
+    # further break down token (extract macro definition or macro use)
+    if len (token) == 0: # which should not happen
+        return []
+    if len (token) == 1: # no further break
+        return [token]
+    if (token[0] in __built_in) and (token[0] != '$'):
+        return [token[0]] + __token_break (token[1:]) # break leftmost out
+    if (token[0] == '$'): # leftmost is macro definition
+        first_command = -1
+        for i in range (len (token)): # try to find a command
+            if token[i] in __built_in:
+                first_command = i
+                break
+        if first_command == -1: # no command found
+            return [token] # macro definition itself
+        return [token[:first_command]] + __token_break (token[first_command:])
+    # leftmost is macro use
+    first_command = -1
+    for i in range (len (token)):
+        if token[i] in __built_in:
+            first_command = i
+            break
+    if first_command == -1:
+        return [token]
+    return [token[:first_command]] + __token_break (token[first_command:])
+
 def __tokenize (L):
     # L is string list (without comments & empty lines)
     # LL is string list list (without whitespaces)
@@ -27,14 +54,9 @@ def __tokenize (L):
     T = []
     for line in LL:
         for token in line:
-            # check if token is string of built-in commands
-            if (token [0] in __built_in) and (token [0] != '$'):
-                # add individual chars into token list
-                for c in token:
-                    T.append (c)
-            else:
-                # add entire token into token list
-                T.append (token)
+            broken_tokens = __token_break (token)
+            for t in broken_tokens:
+                T.append (t)
     return T
 
 def tokenize (L): # public version of tokenize
