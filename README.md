@@ -1,4 +1,6 @@
 # Brainfuck with Macros
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FSAMFYB%2Fbrainfuck.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FSAMFYB%2Fbrainfuck?ref=badge_shield)
+
 
 See [Wikipedia](https://en.wikipedia.org/wiki/Brainfuck) on the original Brainfuck.
 
@@ -76,3 +78,7 @@ zero # put zero into the right cell
 - Allow in-file macro definition
 - Fix program base path finding with relative path
 
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FSAMFYB%2Fbrainfuck.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FSAMFYB%2Fbrainfuck?ref=badge_large)
